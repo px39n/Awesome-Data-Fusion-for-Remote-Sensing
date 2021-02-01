@@ -109,9 +109,9 @@ List of reference,algorithms, applications in RS data fusions (**contribution ar
 Geometric Correction, Error caused by height of buildings/or DEM. BRDF adjustment
 
 Figure1. Error due to deviation in DEM
-<img src="https://www.mdpi.com/remotesensing/remotesensing-10-00527/article_deploy/html/images/remotesensing-10-00527-g001.png" alt="drawing" width="600"/>
+<img src="https://github.com/px39n/Awesome-Data-Fusion-for-Remote-Sensing/blob/main/imgs/elevation.png?raw=true" alt="drawing" width="600"/>
 Figure2. Relationship between error and Angle
-<img src="https://www.mdpi.com/remotesensing/remotesensing-10-00527/article_deploy/html/images/remotesensing-10-00527-g001.png" alt="drawing" width="600"/>
+<img src="https://github.com/px39n/Awesome-Data-Fusion-for-Remote-Sensing/blob/main/imgs/relationship.png?raw=true" alt="drawing" width="600"/>
 **Radiometric Issues:** 
 Radiometric Correction, Band pass adjustment
 **Process Issues:**
