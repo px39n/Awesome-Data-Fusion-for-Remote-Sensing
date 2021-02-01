@@ -115,6 +115,7 @@ Figure1. Error due to deviation in DEM
 Figure2. Relationship between error and Angle
 
 ![enter image description here](https://github.com/px39n/Awesome-Data-Fusion-for-Remote-Sensing/blob/main/imgs/relationship.png?raw=true)
+
 **Radiometric Issues:** 
 Radiometric Correction, Band pass adjustment
 **Process Issues:**
