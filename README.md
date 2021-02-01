@@ -93,14 +93,14 @@ List of reference,algorithms, applications in RS data fusions (**contribution ar
 ### Branch of Research Focus(Taxonomy)
 *Depending on the main problem solved by the model/algorithm,  the development of data fusion can be divided into many areas*
 
-**According to process levels:** Pixel, Attribute, Decision
-**According to Principle:** Weighted function based, Decomposition  based, Learning based (including sparse dictionary,DL), Bayesian based, Hybrid based 
-**According to number of Sensors:** From 1 to N
-**According to sensors:** Homogeneous fusion, Heterogeneous fusion (NIR,-VIS, Optical-SAR, Optical-Thermal, hyper-Multi etc.,), Remote sensing site fusion, Remote sensing non-observation fusion (Data assimilation)
-**According to mechanisms:** Competitive integration, Complementary integration(like temporal and spatial), Cooperative integration(like 3D reconstruction)
-**According to Dimension**: Spatial Dimension Enhancement, Spectral Dimension Enhancement, Time dimension enhancement, End to End.
-**According to Applications**: Pan sharpening, Spatiotemporal, Change detection, Object recognition, Agriculture, Ecology etc.,
-**According to procedure:** Matching, Co-registration, Process, Quality Assessment.
+- **According to process levels:** Pixel, Attribute, Decision
+- **According to Principle:** Weighted function based, Decomposition  based, Learning based (including sparse dictionary,DL), Bayesian based, Hybrid based 
+- **According to number of Sensors:** From 1 to N
+- **According to sensors:** Homogeneous fusion, Heterogeneous fusion (NIR,-VIS, Optical-SAR, Optical-Thermal, hyper-Multi etc.,), Remote sensing site fusion, Remote sensing non-observation fusion (Data assimilation)
+- **According to mechanisms:** Competitive integration, Complementary integration(like temporal and spatial), Cooperative integration(like 3D reconstruction)
+- **According to Dimension**: Spatial Dimension Enhancement, Spectral Dimension Enhancement, Time dimension enhancement, End to End.
+- **According to Applications**: Pan sharpening, Spatiotemporal, Change detection, Object recognition, Agriculture, Ecology etc.,
+- **According to procedure:** Matching, Co-registration, Process, Quality Assessment.
 
 ### Current Challengings
 *In almost every small direction (as shown in the previous subsection). There are a number of issues so authors only list some most important challenges to demostrate.*
