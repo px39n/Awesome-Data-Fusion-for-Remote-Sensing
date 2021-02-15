@@ -152,8 +152,8 @@ They are mostly:
 - can be selectively ignored or modified(such as adaptive registration)
 
 For examples:
-| Sub Topic |  Description
-|--|--|--|
+| Sub Topic |  Description 
+|--|--| 
 | Radiometric Correction |Atmospheric effect. etc
 | Geometric Correction | Camera, Solar Angle etc
 | Band Adjustment| Function based on prior knowledge
