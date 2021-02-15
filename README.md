@@ -1,34 +1,49 @@
+
 # Awesome Data Fusion [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)
 List of reference,algorithms, applications in RS data fusions (**contribution are welcome**)
 <img src="https://www.mdpi.com/remotesensing/remotesensing-10-00527/article_deploy/html/images/remotesensing-10-00527-g001.png" alt="drawing" width="600"/>
 ## Table of Contents
-
-
-  * [Overview of Data Fusion](#overview-of-data-fusion)
-    + [Trends and Literature Reviews](#trends-and-literature-reviews)
-    + [Basic Concept](#basic-concept)
-    + [Sensors](#sensors)
-  * [Focus, Challengings, Algorithms/Models, Quality Assessment](#focus--challengings--algorithms-models--quality-assessment)
-    + [Branch of Research Focus(Taxonomy)](#branch-of-research-focus-taxonomy-)
-    + [Current Challengings](#current-challengings)
-    + [Algorithms](#algorithms)
-      - [1.Single Dimension Traditional Algorithms (Pan-Sharpening, Spectral-matching)](#1single-dimension-traditional-algorithms--pan-sharpening--spectral-matching-)
-      - [2. Spatiotemporal Dimension Traditional Methods（Reconstruction)](#2-spatiotemporal-dimension-traditional-methods-reconstruction-)
-      - [3.Deep Learning in Fusion (Task driven)](#3deep-learning-in-fusion--task-driven-)
-    + [Quality Assessment](#quality-assessment)
-  * [Community](#community)
-    + [IEEE GRSS data fusion contest](#community)
-    + [Software and Open Source Tool](#software-and-open-source-tool)
-      - [Cloud Services](#cloud-services)
-      - [Useful Library](#useful-library)
-    + [Database](#database)
-  * [TERMS](#terms)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+- [Overview of Data Fusion](#overview-of-data-fusion)
+  - [Trends](#trends)
+  - [Basic Concept](#basic-concept)
+  - [Sensors](#sensors)
+- [Focus, Taxonomy](#focus-taxonomy)
+  - [Research Focus](#research-focus)
+    - [1. Resolution enhancement:](#1-resolution-enhancement)
+    - [2. Feature/object detection:](#2-featureobject-detection)
+    - [3. Data Alignment.](#3-data-alignment)
+  - [Taxonomy](#taxonomy)
+- [Current Challengings](#current-challengings)
+  - [1.  Issues Related to Radiation](#1--issues-related-to-radiation)
+  - [2. Issues related to Topology](#2-issues-related-to-topology)
+  - [3. Issues Related to Data](#3-issues-related-to-data)
+  - [4.  Issues Related to Method and Process](#4--issues-related-to-method-and-process)
+  - [5. Issues related to Physics](#5-issues-related-to-physics)
+- [Algorithms](#algorithms)
+  - [1.Spatial Resolution Enhancement Algorithms](#1spatial-resolution-enhancement-algorithms)
+  - [2. Spatiotemporal Fusion by Traditional Methods](#2-spatiotemporal-fusion-by-traditional-methods)
+  - [3. Spatio-Temporal Fusion by Nerual Network](#3-spatio-temporal-fusion-by-nerual-network)
+  - [4.  SAR to Optical](#4--sar-to-optical)
+  - [5.Registration](#5registration)
+  - [6. Super Resolution Enhancement](#6-super-resolution-enhancement)
+  - [7. Classification](#7-classification)
+  - [8.Change Detction](#8change-detction)
+- [Quality Assessment](#quality-assessment)
+  - [1.Assessment Index With Reference Images.](#1assessment-index-with-reference-images)
+  - [2.Assessment Index Without Reference Images.](#2assessment-index-without-reference-images)
+- [Community](#community)
+  - [IEEE GRSS data fusion contest](#ieee-grss-data-fusion-contestlinkhttpwwwgrss-ieeeorggrss-webinars)
+  - [Discussion](#discussion)
+- [Special Issue "Multisensor Data Fusion in Remote Sensing, 2018](#--special-issue-multisensor-data-fusion-in-remote-sensing-2018httpswwwmdpicomjournalremotesensingspecial_issuesmsdf_rs)
+  - [Software and Open Source Tool](#software-and-open-source-tool)
+    - [Cloud Services](#cloud-services)
+    - [Useful Library](#useful-library)
+  - [Database](#database)
+- [TERMS](#terms)
 
 ## Overview of Data Fusion
 
-### Trends and Literature Reviews
+### Trends
 *There are popular topics and review literatures in different period.*
 
 **1992~2000**: Data fusion, spatial resolution
@@ -54,6 +69,7 @@ List of reference,algorithms, applications in RS data fusions (**contribution ar
 - Spatiotemporal Fusion of Multisource Remote Sensing Data: Literature Survey, Taxonomy, Principles, Applications, and Future Directions([Zhu et al.2018](https://www.mdpi.com/2072-4292/10/4/527/htm))
 - Spatiotemporal Image Fusion in Remote Sensing ([Belgiu et al.2019](https://www.mdpi.com/2072-4292/11/7/818))
 - Deep Learning in Remote Sensing: A Comprehensive Review and List of Resources([Zhu et al.2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8113128/references#references))
+- [Remote Sensing Image Scene Classification Meets Deep Learning: Challenges, Methods, Benchmarks, and Opportunities](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/9127795)
 
 ### Basic Concept
 **DOD:** Data fusion is a multilevel, multifaceted process dealing with the automatic detection, association, correlation, estimation, and combination of data and information from multiple source.
@@ -89,47 +105,144 @@ List of reference,algorithms, applications in RS data fusions (**contribution ar
 | IRS-P3 | WIFS/MOS |188m | | 5d
 | updating  |  | | | 
 
-## Focus, Challengings, Algorithms/Models, Quality Assessment
-### Branch of Research Focus(Taxonomy)
+## Focus, Taxonomy
+
+### Research Focus
+The application of data fusion in remote sensing is mainly divided in two scenarios:
+
+#### 1. Resolution enhancement: 
+It aims to provide higher resolution by combining multi modal data. The results are more like to be transition data, base map, or continuous time series for applications need high temporal and spatial resolution. 
+
+They are mostly:
+- Based on pixel level.
+- Focus on Robustness, temporal  continuous 
+
+For examples:
+| Sub Topic | Enhancement  | Applications
+|--|--|--|
+| Super Resolution | Spatial | Transition for registration, base map
+| pan-sharpening | Spatial  | base map 
+| spatio-temporal fusion | Temporal and Spatial  | base map, time series
+
+Typical applications: Plant detection, weather detection, ecology, change detection, land cover, etc.
+
+#### 2. Feature/object detection: 
+It aims to improve accuracy and precision of specific task, based on complementary property of heterogeneous information in multimodality. Often, temporal continuity can be sacrificed.
+
+They are mostly:
+- End to End 
+-  based on pixel level or decision level.
+- Focus on accuracy of task (instead of fused images)
+
+For examples:
+
+| Sub Topic | Enhancement  | Application
+|--|--|--|
+| Change detection | Accuracy of Change map | Land cover, Building..
+| Object detection | Accuracy of Detection | Car, Building
+| segmentation | Accuracy of Classification | Land Cover, Forest
+
+Typical Applications:  change detection, land change coverage, land classification, disaster monitoring, building recognition, vehicle recognition, etc.
+
+#### 3. Data Alignment.
+It aims to find and adjust the unlinear connections between different sensors, It could be divided into matching and co-registration, Furthermore, the problems need to be resolved could be regarded as topological and radiation issues.
+They are mostly:
+- Necessary for all multi-modal applications
+- part of preprocess
+- can be selectively ignored or modified(such as adaptive registration)
+
+For examples:
+| Sub Topic |  Description
+|--|--|--|
+| Radiometric Correction |Atmospheric effect. etc
+| Geometric Correction | Camera, Solar Angle etc
+| Band Adjustment| Function based on prior knowledge
+| BRDF Adjustment| Function based on vegetation
+| Registration of Different Modal| SAR-Optical, Multi-Temporal..
+| Adaptive Registration  | Domain, Manifold, Attention Mechanics, Tensor
+
+### Taxonomy
 *Depending on the main problem solved by the model/algorithm,  the development of data fusion can be divided into many areas*
 
 - **According to process levels:** Pixel, Attribute, Decision
 - **According to Principle:** Weighted function based, Decomposition  based, Learning based (including sparse dictionary,DL), Bayesian based, Hybrid based 
-- **According to number of Sensors:** From 1 to N
-- **According to sensors:** Homogeneous fusion, Heterogeneous fusion (NIR,-VIS, Optical-SAR, Optical-Thermal, hyper-Multi etc.,), Remote sensing site fusion, Remote sensing non-observation fusion (Data assimilation)
+- **According to modal:** Homogeneous fusion, Heterogeneous fusion (NIR,-VIS, Optical-SAR, Optical-Thermal, hyper-Multi etc.,), Remote sensing site fusion, Remote sensing non-observation fusion (Data assimilation)
 - **According to mechanisms:** Competitive integration, Complementary integration(like temporal and spatial), Cooperative integration(like 3D reconstruction)
 - **According to Dimension**: Spatial Dimension Enhancement, Spectral Dimension Enhancement, Time dimension enhancement, End to End.
-- **According to Applications**: Pan sharpening, Spatiotemporal, Change detection, Object recognition, Agriculture, Ecology etc.,
+- **According to Applications**: spatial resolution enhancement , Matching and co-registration of multisource data,  Change detection, Object recognition, Agriculture, Ecology etc.,
 - **According to procedure:** Matching, Co-registration, Process, Quality Assessment.
 
-### Current Challengings
+
+## Current Challengings
 *In almost every small direction (as shown in the previous subsection). There are a number of issues so authors only list some most important challenges to demostrate.*
 
-**Topological Issues:**
-Geometric Correction, Error caused by height of buildings/or DEM. BRDF adjustment
+As metioned before, spatial enhancement and fusion of complimentary information are main scientific focus. Apart from these, there are: 
 
-Figure1. Error due to deviation in DEM
+### 1.  Issues Related to Radiation 
+| Issues| Popular Solutions | Description
+|--|--|--|
+|  Atmospheric effect   | Radiometric Correction | Commonsense
+|  Solar azimuth and elevation  | Radiometric Correction |Commonsense
+|  Band pass Adjustment  | linear regression |The small differences between MSI and OLI equivalent spectral bands need to be adjusted.
+|  Bidirectional Reflectance Distribution effect  | BRD Function (BRDF) |The BRDF is needed in remote sensing for the correction of view and illumination angle effects (for example in image standardization and mosaicking)
 
-![enter image description here](https://github.com/px39n/Awesome-Data-Fusion-for-Remote-Sensing/blob/main/imgs/elevation.png?raw=true)
+###  2. Issues related to Topology
+| Issues| Popular Solutions | Description
+|--|--|--|
+|  Lens Distortion| (Camera Calibration in) Geometric Correction | Commonsense
+|  Error caused by Elevation(SAR and optical) | Co-Registration  | Please see figure1 and figure2
+|  Mis-matching in pixel | Co-Registration | in Multi-Temporal, Multi-Sensor, Multi-Angle
+|  Mis-matching in Feature | Co-Registration , Domain Adaptation| adaptive alignment as part of model
+ |  Mis-matching in Object| Co-Registration , Attention Mechanics | adaptive alignment as part of model
 
-Figure2. Relationship between error and Angle
+
+Figure1. Error due to deviation in DEM, Relationship between error and Angle
 
 ![enter image description here](https://github.com/px39n/Awesome-Data-Fusion-for-Remote-Sensing/blob/main/imgs/relationship.png?raw=true)
 
-**Radiometric Issues:** 
-Radiometric Correction, Band pass adjustment
-**Process Issues:**
-- **General level:** Computation Speed(Cloud service), abrupt change (in land use), Multimodal sensor. heterogeneous region
-- **For traditional methods:** Un-Mixing(Big error, Spatial variability within coarse pixels), sparse representation (Insufficient a priori knowledge), landcover(Landscape heterogeneity, Abrupt change)
-- **For Deep Learning:**  Change Detection(Seasonal change, vegetation, Transferable),  computation, feature-level alignment, transferable, physics prior knowledge. 
+###3. Issues Related to Data 
+**Noise:** 
+| Issues| Popular Solutions | Description
+|--|--|--|
+|  Noise in SAR | (Camera Calibration in) Geometric Correction | Speckle
+|  Cloud | mask, super resolution, reconstruction, interpolation | 
+
+**Sample:** 
+| Issues| Popular Solutions | Description
+|--|--|--|
+|  Spectral/Index Colinearity, Similarity | PCA, Correlation Anlysis | Huges Phenomenon, Statistics
+|  Lack of Samples | Data Augmentation, Semi-supervised, GANs | Overfitting, low generalization 
+| Unbalanced Samples | Loss functions, updating... | weak train in small class 
+ |  Gap in Resolution| Transition(Super resolution) | For 1:2 or higher resolution ratio in multi modal, It will increase the difficulty in data fusion
+ 
+### 4.  Issues Related to Method and Process 
+| Issues| Popular Solutions | Description
+|--|--|--|
+|  Computation Speed  | Alternative method, cloud service,Parallel computing  |  
+|  Issues related to training| AI tools | like overvitting, vanished gradient etc., 
+|  Hard to fuse heterogeneity| Pixel(like unmixing), feature(like feature layers), decision level(like DT) | multi-modal
+|  low Generalization | Data augmentation, Domain Adaptive, Pre-train  |   transferability 
+|  lack of Interpretability| Combination with prior knowlege(Branch, Attention, feature layers,data assimilation )  |   Physics
 
 
+### 5. Issues related to Physics
+| Issues| Popular Solutions | Description
+|--|--|--|
+|  Intra-class Variation| (updating)| Small difference between different class
+| Inter-class variation | (updating)| Large difference in same class
+| Landscape Heterogeneity| Learning based method,(updating)| Variations in high resolution pixel.
+| Change due to Landcover | Learning based method,(updating)| 
+| Abrupt Change | Function related to time(updating)| disaster etc
+| Seasonal Change | Function related to time(updating)|  vegetation
 
-### Algorithms
+
+## Algorithms
 There are currently more than 200 spatio-temporal models, so only part of baseline models or polular papers are included.
 
-#### 1.Single Dimension Traditional Algorithms (Pan-Sharpening, Spectral-matching)
-(Pan-sharpening by using a pair of images registered)
+### 1.Spatial Resolution Enhancement Algorithms 
+*Multisensor image fusion for spatial resolution enhancement such as pan-sharpening, multi/hyperspectral image fusion, and downscaling of multiresolution imagery*
+
+
 | Purpose| Principle | Method | Paper |  Code| Features
 |--|--|--|--|--|--|
 | Spatial | Component (+) | Principle Component Analysis(PCA) |Shettigara et al.1992 | Updating
@@ -162,14 +275,15 @@ There are currently more than 200 spatio-temporal models, so only part of baseli
 | Spectral| Hybrid|| |
 
 
-#### 2. Spatiotemporal Dimension Traditional Methods（Reconstruction)
-(Normally Prediction by fusing two high temporal and high spatial resolution sensors with correction)
-|Sensor| Principle | Method | Paper | Code| Features
-|--|--|--|--|--|--|
+###  2. Spatiotemporal Fusion by Traditional Methods 
+*(Normally Prediction by fusing two high temporal and high spatial resolution sensors with correction,Multisensor and multimodal data fusion using a variety of sensors such as optical imaging, SAR, and LiDAR)*
+|Sensor| Principle |Method | Paper | Code| Features | Registration 
+|--|--|--|--|--|--|--|
 | Landsat&MODIS| Weighted Function |STARFM|（[Gao et al.2006](https://ieeexplore.ieee.org/abstract/document/1661809)) |[Python](https://github.com/topics/starfm)
 |+ |+  |STAARCH| ([Hilker et al.2009](https://www.sciencedirect.com/science/article/pii/S003442570900087X)) | Code | Cloud and Snow Cover
 | +|+  |ESTARFM|([Zhu et al.2010](https://www.sciencedirect.com/science/article/pii/S0034425710001884)) | [IDL,Python](https://xiaolinzhu.weebly.com/open-source-code.html) |Enhancement in Heterogeneous region 
 | MODIS&landsat| + |RWSTFM|([wang et al.2017](https://www.mdpi.com/2072-4292/9/10/990)) |Code | kriging Based
+| 1MODIS,2landsat| + | Prediction Smooth Method|([Zhong et al.2018](https://www.mdpi.com/2072-4292/10/9/1371/htm)) |Code | abrupt change, phenology| Manual
 | MODIS&landsat|+ |SADFAT|[Weng et al.2014](https://www.sciencedirect.com/science/article/pii/S0034425714000479) |Code | Consider Annual temperature Cycle
 | Unlimited |+  |STITFM|[Wu et al.2014](https://www.sciencedirect.com/science/article/pii/S0034425714003563) |Code | Multi-Sensor LST
 | |  +|STVIFM|[Liao et al.2017](https://www.mdpi.com/2072-4292/9/11/1125)|Code | growth stages
@@ -183,48 +297,78 @@ There are currently more than 200 spatio-temporal models, so only part of baseli
  | Landsat&MODIS| + |ELM| ([Liu et al.2016](https://ieeexplore.ieee.org/abstract/document/7748638) ) | Code| [Matlab](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7748638/figures#figures)
  | Landsat&MODIS| + |CSSF| ([Wei et al.2017](https://ieeexplore.ieee.org/abstract/document/8036397)) | Code| Compression downsampling
  | Landsat&MODIS| + |WAIFA| [Moosavi et al.2015](https://www.sciencedirect.com/science/article/pii/S0034425715301036)| | wavelet&ANN
-  | Landsat&MODIS| + |STFDCNN| [Song et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8291042)| Code| Transition Image
- | | + |DCSFTN| | Code|
+   | 2Landsat&1MODIS| + |STFDCNN| [Song et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8291042)| Code| Transition Image
+   | | + |DCSFTN| | Code|
  | | Hybrid|FSDAF| ([Zhu et al.2016](https://www.sciencedirect.com/science/article/pii/S0034425715302042))| Abrupt Change 
  | |+ |NDVI-LMGM| ([yu et al.2015](https://www.mdpi.com/2072-4292/7/6/`7865`/htm))| linear growth&unmixing
  |Two Time series| Others |STAIR| ([Luo et al.2015](https://www.sciencedirect.com/science/article/pii/S0034425718301998))| Difference, Cloud
  |Multi Time series| Others |STAIR2| ([Luo et al.2020](https://www.mdpi.com/2072-4292/12/19/3209/htm))| 
 
-#### 3.Deep Learning in Fusion (Task driven) 
-Deep learning normally focus on a specific task. And nomally in format of End-to-End way.
+### 3. Spatio-Temporal Fusion by Nerual Network
+|Registration|Modal|Process Level|Method | Paper | Code| Features
+|--|--|--|--|--|--|--|
+|Traditional |A(T1,T3), B(T2)|pixel|StfNet(Two Branch)| ([Liu,2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8693668)) | Code| Features
+|Traditional|A1-3,B1,3|pixel|Super Resolution, weighted function| ([SONG, 2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8291042/citations?tabFilter=papers#citations))| Code| Features
+|Traditional|A1-3,B1,3|pixelLevel|Super Resolution, weighted function| [Li,2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8898524) | Code| Features
+|Traditional|A12,B1 |PIXEL|DMnet, concatenate| [lI 2020](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/9109314) | Code| Features
+|Traditional|A12,B1 |PIXEL|CNN, concatenate| [Yin 2020](|Traditional|A1,B1 |PIXEL|DMnet, concatenate| [lI 2020](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/9109314) | Code| Features) | Code| Features
+
+### 4.  SAR to Optical
 |Task| Source | Method | Paper | Code| Features
 |--|--|--|--|--|--|
 | Pan-Sharpening| Low&High |CNN|[jin et al.2016](https://link.springer.com/article/10.1007/s11220-016-0135-6)|Code | Resolution enhancedment of MSS
 | Pan-Sharpening| Low&High |CNN|[G Masi et al.2016](https://scholar.google.com/scholar?as_q=Pansharpening+by+convolutional+neural+networks&as_occt=title&hl=en&as_sdt=0%2C31)|Code | End-to-End
-| Super Resolution| Low&High |CNN|[Yuan et al.2016](https://scholar.google.com/scholar?as_q=Pansharpening+by+convolutional+neural+networks&as_occt=title&hl=en&as_sdt=0%2C31)|[Code](https://github.com/junjun-jiang/Hyperspectral-Image-Super-Resolution-Benchmark) | End-to-End,Transfer Model from CV, hyperspectrum
-| Super Resolution| Low&High |Deep Residual Convolutional Neural Network|[Wang et al 2017](http://www.ict.griffith.edu.au/~junzhou/papers/C_ICIG_2017.pdf)|[Code](https://github.com/junjun-jiang/Hyperspectral-Image-Super-Resolution-Benchmark) | End-to-End,Transfer Model from CV, hyperspectrum
-| Super Resolution| Low&High |SSF-CNN|[X. Han et al 2018](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8451142)|[Code](https://github.com/junjun-jiang/Hyperspectral-Image-Super-Resolution-Benchmark) | End-to-End,Transfer Model from CV, hyperspectrum
-| Super Resolution| Low&High |Deep Neural Network|[R. Dian et al.2017](https://drive.google.com/open?id=1FIyVL9c8jlDY3heEZ57nGvpSDZc0mkeT)|[Code](https://github.com/renweidian/DHSIS) | 
-| Super Resolution| Low&High |Sparse Dirichlet-Net|[Y. Qu et al.2018](https://arxiv.org/abs/1804.05042)|[Code](https://github.com/aicip/uSDN) | 
-| Super Resolution| Low&High |Deep Neural Network|[Y. Qu et al.2018](https://arxiv.org/abs/1902.00301)|[Code](https://github.com/acecreamu/deep-hs-prior) | 
-| Super Resolution| Low&High |Deep Neural Network|[Y. Qu et al.2020](https://www.mdpi.com/2072-4292/13/2/167/htm)|[Code](https://github.com/acecreamu/deep-hs-prior) | Chen
-Registration and SR| Low&High |Deep Neural Network|[Y. Qu et al.2018](https://ieeexplore.ieee.org/document/8897135)|[Code](https://github.com/zhouyuanzxcv/Hyperspectral) | 
-Registration| SAR&Optical |Deep Neural Network|[Mou 2017 et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7924548) | Patch-based
-| Classification| Multi |CNN|[Lagrange et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7326745)|[Code](https://github.com/acecreamu/deep-hs-prior) | Comparision of existing
-| Classification| Multi |FusioNet|[Hu et al.2017](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7924565)|[Code](https://github.com/acecreamu/deep-hs-prior) | Feature Level, two Stream
-| Classification| Multi |DeepNetsForEO|[Audebert et al.2017](https://link.springer.com/chapter/10.1007/978-3-319-54181-5_12ithub # Semantic Segmentation of Earth Observation Data Using Multimodal and)|[Code](https://github.com/nshaud/DeepNetsForEO/blob/master/legacy/README.md) | Feature Level, two Stream
-| Classification| VNIR-DSM |DeepUNet|[Audebert et al.2017](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8486170)|[Code](https://github.com/nshaud/DeepNetsForEO/blob/master/legacy/README.md) | Channel Packing
-| Recognition| Hyper&SAR |Dual DCNN|[Lagrange et al.2018](https://arxiv.org/abs/1605.05462)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Feature Level, two Stream
-| Recognition| Multi&SAR |Multi-TaskUNet|[JIAN et al.2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8554076)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Multi-Task(Edge, Biniary),xception
-| Registration| Optical&SAR |Siamese|[Mou et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7924548)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Feature Level, two Stream, semi-auto- Label
-| Registration| Optical&SAR |3 DNN|[Hughes et al.2020](https://www.sciencedirect.com/science/article/pii/S0924271620302598?via%3Dihub)|[Code]() | hot map, goodness
-| Registration| Optical&SAR |Siamese|[He et al.2018](https://www.mdpi.com/2072-4292/10/2/355)|[Code]() |
-| Registration| Optical&SAR |Pseudo-Siamese CNN|[Hughes et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8314449)|[Code]() |  
 | SAR 2 Optical| SAR |GANs|[Reyes et al.2018](https://www.mdpi.com/2072-4292/11/17/2067/htm)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Feature Level, two Stream, semi-auto- Label
 | SAR 2 Optical(Cloud removal)| SAR |DRN|[Meraner et al.2018](https://pubmed.ncbi.nlm.nih.gov/32747852/)|[Code](https://github.com/ameraner/dsen2-cr) | cloud removal
 | SAR 2 Optical| SAR |sar2opt|[Toriya et al.2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8898605?denied=)|[Code]() |
 | Growth Prediction| Multi |CNN|[Scarpa et al.2018](https://www.mdpi.com/2072-4292/10/2/236/htm)|[Code](https://github.com/antoniomazza88/SAR2NDVI_CNN) | pixel level, Sentinel,NDVI fusion and pixel fusion
 | Growth Prediction| SAR&VNIR |Random Forest|[hECKEL et al.2020](https://www.mdpi.com/2072-4292/12/2/302/htm)|[Code]() | pixel level, Sentinel
+### 5.Registration
+|Learning|Modal|Process Level|Method | Paper | Code| Features
+|--|--|--|--|--|--|--|
+Registration and SR| Low&High |Deep Neural Network|[Y. Qu et al.2018](https://ieeexplore.ieee.org/document/8897135)|[Code](https://github.com/zhouyuanzxcv/Hyperspectral) | 
+Registration| SAR&Optical |Deep Neural Network|[Mou 2017 et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7924548) | Patch-based
+| Recognition| Hyper&SAR |Dual DCNN|[Lagrange et al.2018](https://arxiv.org/abs/1605.05462)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Feature Level, two Stream
+| Recognition| Multi&SAR |Multi-TaskUNet|[JIAN et al.2019](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8554076)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Multi-Task(Edge, Biniary),xception
+| Registration| Optical&SAR |Siamese|[Mou et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7924548)|[Code](https://github.com/seongjunyun/CNN-with-Dual-Local-and-Global-Attention) | Feature Level, two Stream, semi-auto- Label
+| Registration| Optical&SAR |3 DNN|[Hughes et al.2020](https://www.sciencedirect.com/science/article/pii/S0924271620302598?via%3Dihub)|[Code]() | hot map, goodness
+| Registration| Optical&SAR |Siamese& Gaussian pyramid coupling quadtree|[He et al.2018](https://www.mdpi.com/2072-4292/10/2/355)|[Code]() | Coarse-finer
+| Registration| Optical&SAR |Pseudo-Siamese CNN|[Hughes et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8314449)|[Code]() |  
+| Supervised| Optical&SAR | Siamese CNN|[Merk et al.2017](https://www.mdpi.com/2072-4292/9/6/586/htm)|[Code]() |  
+ 
+### 6. Super Resolution Enhancement
+|Registration|Modal|Process Level|Method | Paper | Code| Features
+|--|--|--|--|--|--|--|
+||CNN|[Yuan et al.2016](https://scholar.google.com/scholar?as_q=Pansharpening+by+convolutional+neural+networks&as_occt=title&hl=en&as_sdt=0%2C31)|[Code](https://github.com/junjun-jiang/Hyperspectral-Image-Super-Resolution-Benchmark) | End-to-End,Transfer Model from CV, hyperspectrum
+||Low&High |Deep Residual Convolutional Neural Network|[Wang et al 2017](http://www.ict.griffith.edu.au/~junzhou/papers/C_ICIG_2017.pdf)|[Code](https://github.com/junjun-jiang/Hyperspectral-Image-Super-Resolution-Benchmark) | End-to-End,Transfer Model from CV, hyperspectrum
+||Low&High |SSF-CNN|[X. Han et al 2018](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8451142)|[Code](https://github.com/junjun-jiang/Hyperspectral-Image-Super-Resolution-Benchmark) | End-to-End,Transfer Model from CV, hyperspectrum
+|| Low&High |Deep Neural Network|[R. Dian et al.2017](https://drive.google.com/open?id=1FIyVL9c8jlDY3heEZ57nGvpSDZc0mkeT)|[Code](https://github.com/renweidian/DHSIS) | 
+| |  Low&High |Sparse Dirichlet-Net|[Y. Qu et al.2018](https://arxiv.org/abs/1804.05042)|[Code](https://github.com/aicip/uSDN) | 
+|| Low&High |Deep Neural Network|[Y. Qu et al.2018](https://arxiv.org/abs/1902.00301)|[Code](https://github.com/acecreamu/deep-hs-prior) | 
+|| Low&High |Deep Neural Network|[Y. Qu et al.2020](https://www.mdpi.com/2072-4292/13/2/167/htm)|[Code](https://github.com/acecreamu/deep-hs-prior) | Chen
+Mannual|HSI-MSI|patch-based,concatenation| Super Resolution| Low&High |Deep Neural Network|[Yang et al.2018](https://www.mdpi.com/2072-4292/10/5/800/htm)|[Code](https://github.com/acecreamu/deep-hs-prior) | Two branches
+
+### 7. Classification
+
+|Registration|Modal|Process Level|Method | Paper | Code| Features
+|--|--|--|--|--|--|--|
+| Classification| Multi ||CNN|[Lagrange et al.2018](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7326745)|[Code](https://github.com/acecreamu/deep-hs-prior) | Comparision of existing
+| Classification| Multi ||FusioNet|[Hu et al.2017](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/7924565)|[Code](https://github.com/acecreamu/deep-hs-prior) | Feature Level, two Stream
+| | Multi| |DeepNetsForEO|[Audebert et al.2017](https://link.springer.com/chapter/10.1007/978-3-319-54181-5_12ithub # Semantic Segmentation of Earth Observation Data Using Multimodal and)|[Code](https://github.com/nshaud/DeepNetsForEO/blob/master/legacy/README.md) | Feature Level, two Stream
+| Classification| VNIR-DSM ||DeepUNet|[Audebert et al.2017](https://ieeexplore-ieee-org.proxy.library.cornell.edu/document/8486170)|[Code](https://github.com/nshaud/DeepNetsForEO/blob/master/legacy/README.md) | Channel Packing
+| Manual| Sentinel2,Lansat8, OSM,etc,. |Pixel(Concatenation)|ResNet|[Qiu et al.2018](https://www.mdpi.com/2072-4292/10/10/1572)|| LCZ maps
+
+### 8.Change Detction
+|Modal| Method | Paper | Code| Features
+|--|--|--|--|--|--|
+|SAR1 (T1, T2)|Ratioing/log Ratioing|[Papers](https://ieeexplore.ieee.org/abstract/document/6257409)||
+|SAR1 (T1, T2)|Small wavelet transform|([Bovolo,2005](https://scholar.google.com/scholar_lookup?title=A%20detail-preserving%20scale-driven%20approach%20to%20change%20detection%20in%20multitemporal%20SAR%20images&author=Bovolo,%20F.&author=Bruzzone,%20L.&publication_year=2005&journal=IEEE%20Trans.%20Geosci.%20Remote%20Sens.&volume=43&pages=2963%E2%80%932972&doi=10.1109/TGRS.2005.857987))|| Unsupervised
+|SAR1 (T1, T2),SAR2 (T1, T2)| Markov|([Solarna,2018](https://www.mdpi.com/2072-4292/10/11/1671/htm#B9-remotesensing-10-01671))||Unsupervised
+More Change detection research please refer to [Awesome Change Detection](https://github.com/wenhwu/awesome-remote-sensing-change-detection)
 
 
-
-### Quality Assessment
-**1.Assessment Index With Reference Images.**
+## Quality Assessment
+### 1.Assessment Index With Reference Images.
 | Index | Description | Dimension  |  Reference 
 |--|--|--|--|
 |Spectral angle|updating | spectral| Updating
@@ -237,7 +381,7 @@ General image quality index|updating|spectral| Updating
 |Structural similarity coefficient| |spatial&temporal| Updating
 |Global integrated error index| updating|spatial&spectral| Updating
 |Average error|updating |spatial| Updating
-**2.Assessment Index Without Reference Images.**
+### 2.Assessment Index Without Reference Images.
 | Index | Description | Dimension  |  Reference 
 |--|--|--|--|
 |Average value | updating|spatial,spectral
@@ -305,6 +449,10 @@ Daniele Cerra| Deep convolutional and shallow neural networks on a simplified se
 Sergey Sukhanov| Ensemble learning based on several classifiers, including convolutional neural networks, gradient boosting machines, and random forests, followed by post-processing techniques | [AGTDA](https://github.com/microsoft/landcover) |
 
 2017,2016,2015 are updating!
+### Discussion
+- [Special Issue "Multisensor Data Fusion in Remote Sensing, 2018"](https://www.mdpi.com/journal/remotesensing/special_issues/msdf_rs)
+- 
+
 
 ### Software and Open Source Tool
 *We will focus on cloud computing and some important machine learning libraries*
@@ -338,5 +486,3 @@ Sergey Sukhanov| Ensemble learning based on several classifiers, including convo
 **Modality**: It refers to the raw input used by the sensors.
 
 **Spatial context** of a pixel, computed by local variance, or structure function or any spatial operator. This operation can be extended to time context in the case of time-series of measurements. Equivalent terms are local variability, local fluctuations, spatial or time texture, or pattern.
-
-
